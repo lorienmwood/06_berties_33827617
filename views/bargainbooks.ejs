@@ -2,15 +2,16 @@
 <html>
 
 <head>
-    <title>About <%=shopData.shopName%>
+    <title>
+        <%=shopData.shopName%>: Books less than £20
     </title>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
 
 <body>
-    <h1>About <%=shopData.shopName%>
+    <h1>
+        <%=shopData.shopName%>: Books less than £20
     </h1>
-    <p>Here are the books we sell:</p>
     <ul>
         <% availableBooks.forEach(function(book) { %>
             <li>

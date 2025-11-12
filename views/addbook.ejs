@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>
+        <%=shopData.shopName%>: Add A Book
+    </title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+    <h1>
+        <%=shopData.shopName%>: Add A Book
+    </h1>
+    <form action="/books/bookadded" method="post">
+        <p>
+            <label>Book Name:</label>
+            <input type="text" name="name" required>
+        </p>
+        <p>
+            <label>Price:</label>
+            <input type="number" name="price" required>
+        </p>
+        <button type="submit">Add Book</button>
+    </form>
+</body>
+
+</html>
