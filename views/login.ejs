@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome to <%=shopData.shopName%> Login</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/main.css" />
+<body>
+  <h1>Welcome to <%=shopData.shopName%> Login</h1>
+
+  <form action="/users/loggedin" method="post">
+    <br />
+    <label>Username:</label>
+    <input type="text" name="username" required />
+    <br />
+
+    <br />
+    <label>Password:</label>
+    <input type="password" name="password" required />
+    <br />
+
+    <button type="submit">Login</button>
+  </form>
+</body>
+
+</html>

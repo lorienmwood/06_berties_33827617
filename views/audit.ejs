@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%=shopData.shopName%>: Login Audit Log
+    </title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+    <h1>
+        <%=shopData.shopName%>: Login Audit Log
+    </h1>
+
+    <table>
+        <tr>
+            <th>Success?</th>
+            <th>Username</th>
+            <th>Time</th>
+        </tr>
+
+        <% logs.forEach(function(log) { %>
+            <tr>
+                <td>
+                    <%= log.success ? "Yes" : "No" %>
+                </td>
+                <td>
+                    <%= log.username %>
+                </td>
+                <td>
+                    <%= new Date(log.created_at).toLocaleString() %>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>

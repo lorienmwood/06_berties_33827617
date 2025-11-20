@@ -1,10 +1,65 @@
 # Berties Books
 
-Sample code for Dynamic Web Applications module.
+A small web application built using Node.js, Express.js, and the EJS templating engine.
 
-Uses node.js with Express and EJS.
+## Technologies Used
 
-To install and run:
+- Express.js – for handling web requests/routes
+- Node.js – to run the server
+- EJS - for dynamic HTML templates
+- HTML – for the webpages
 
+## How to Install and Run Locally
+
+1. Clone the Github
+
+```
+git clone https://github.com/lorienmwood/06_berties_33827617.git
+cd 06_berties_33827617
+```
+
+2. Install Node.js
+
+```
 npm install
+```
+
+3. Run the Server
+
+```
 node index.js
+```
+
+4. Open the Browser \
+   Visit http://localhost:8000/ and the webpage will open.
+
+## Routes
+
+| Route           | Description                                          |
+| --------------- | ---------------------------------------------------- |
+| /               | Home page displaying other pages                     |
+| / about         | About the shop                                       |
+| / addbooks      | Add additional books to shop                         |
+| / audit         | Shows login attempts                                 |
+| / bargainbooks  | Shows books less than £20                            |
+| / list          | List of books in shop                                |
+| / login         | Login Page                                           |
+| / loggedin      | When user logged in                                  |
+| / register      | Register first name,last name and email of customers |
+| / registered    | Registered users                                     |
+| / search        | Search shop items                                    |
+| / searchresults | Page to show results                                 |
+| / survey        | Surveying customers first name ,last name and email  |
+
+## dotenv
+
+1. To avoid exposing database credentials in the source code, the application uses the dotenv module.
+2. This stores sensitive details like the database host, username, password, and name in a separate .env file that isn’t committed to version control.
+3. The variables are loaded at runtime and accessed via process.env, with the .env file added to .gitignore to keep it hidden from GitHub.
+4. This helps keep sensitive data secure.
+
+## audit
+
+1. Audit is used to track if login attempts where successful failed login attempts.
+2. All login attempts are recorded in an audit_log table, including the username, result, message, and timestamp.
+3. Entries are added after each login attempt, and the /users/audit route displays this data, providing a simple way to monitor login activity and spot suspicious behaviour.
