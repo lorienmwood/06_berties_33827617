@@ -30,24 +30,14 @@ console.log("DB ENV SEEN BY APP:", {
 
 // Define the database connection pool
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  // host: process.env,BB_HOST
+  user: process.env.BB_USER,
+  password: process.env.BB_PASSWORD,
+  database: process.env.BB_DATABASE,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
-
-// const db = mysql.createPool({
-//   host: "localhost",
-//   user: "berties_books_app",
-//   password: "qwertyuiop",
-//   database: "berties_books",
-//   waitForConnections: true,
-//   connectionLimit: 10,
-//   queueLimit: 0,
-// });
 
 global.db = db;
 
@@ -65,3 +55,13 @@ app.use("/books", booksRoutes);
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+// const db = mysql.createPool({
+//   host: "localhost",
+//   user: "berties_books_app",
+//   password: "qwertyuiop",
+//   database: "berties_books",
+//   waitForConnections: true,
+//   connectionLimit: 10,
+//   queueLimit: 0,
+// });
