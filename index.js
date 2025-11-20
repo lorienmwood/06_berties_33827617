@@ -3,6 +3,7 @@ var express = require("express");
 var ejs = require("ejs");
 const path = require("path");
 var mysql = require("mysql2");
+require("dotenv").config();
 
 // Create the express application object
 const app = express();
@@ -20,7 +21,12 @@ app.use(express.static(path.join(__dirname, "public")));
 // Define our application-specific data
 app.locals.shopData = { shopName: "Bertie's Books" };
 
-require("dotenv").config();
+console.log('DB ENV SEEN BY APP:', {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  passwordSet: !!process.env.DB_PASSWORD,
+  db: process.env.DB_NAME,
+});
 
 // Define the database connection pool
 const db = mysql.createPool({
