@@ -311,7 +311,7 @@ router.post(
           // const redirectUrl = req.session.returnTo || "/";
           delete req.session.returnTo;
           // return res.redirect("/users/login");
-          return res.redirect(req.baseUrl + "/login");
+         return res.redirect("./login");
 
         } else {
           // Failed login: bad password
