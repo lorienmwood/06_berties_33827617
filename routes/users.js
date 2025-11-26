@@ -310,8 +310,8 @@ router.post(
           // decide where to go next
           // const redirectUrl = req.session.returnTo || "/";
           delete req.session.returnTo;
-          // return res.redirect("/users/login");
-         return res.redirect("./login");
+        //  return res.redirect("./login");
+         return res.redirect("./list");
 
         } else {
           // Failed login: bad password
