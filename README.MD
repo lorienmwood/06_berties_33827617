@@ -65,3 +65,16 @@ node index.js
 3. Entries are added after each login attempt, and the /users/audit route displays this data, providing a simple way to monitor login activity and spot suspicious behaviour.
 
 
+## Access Control 
+
+These pages check access and redirect to the login page if the user is not logged in:
+
+/users/logout – only logged-in users can log out.
+
+/books/addbook - the add-book form is restricted so only logged-in users can add books.
+
+/books/bookadded – the POST route that actually inserts a new book into the database is also restricted.
+
+/books/list  – the full list of books is only shown to logged-in users.
+
+/users/audit - the full list of login attempts

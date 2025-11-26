@@ -219,23 +219,7 @@ router.get("/list", function (req, res, next) {
   });
 });
 
-// Login Route - Shows login form
-router.get("/login", function (req, res, next) {
-  res.render("login.ejs");
-});
 
-// Route for list of users in database (no passwords shown)
-router.get("/list", function (req, res, next) {
-  const sqlquery = "SELECT username, firstName, lastName, email FROM users";
-
-  db.query(sqlquery, (err, result) => {
-    if (err) {
-      return next(err);
-    } else {
-      return res.render("userslist.ejs", { users: result });
-    }
-  });
-});
 
 // Login Route - Shows login form
 router.get("/login", function (req, res, next) {
@@ -310,7 +294,7 @@ router.post(
         
           delete req.session.returnTo;
           //  return res.redirect("./login");
-          return res.redirect("./");
+         return res.redirect("../");
 
         } else {
           // Failed login: bad password
