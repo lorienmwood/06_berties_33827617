@@ -4,6 +4,7 @@ var ejs = require("ejs");
 const path = require("path");
 var mysql = require("mysql2");
 var session = require("express-session");
+const expressSanitizer = require('express-sanitizer');
 require("dotenv").config();
 
 // Create the express application object
@@ -21,6 +22,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Define our application-specific data
 app.locals.shopData = { shopName: "Bertie's Books" };
+
+// Create an input sanitizer
+app.use(expressSanitizer());
 
 // Create a session
 app.use(
@@ -51,13 +55,6 @@ app.use(
 //   connectionLimit: 10,
 //   queueLimit: 0,
 // });
-
-console.log("DB ENV SEEN BY APP:", {
-  host: process.env.BB_HOST,
-  user: process.env.BB_USER,
-  passwordSet: !!process.env.BB_PASSWORD,
-  db: process.env.BB_DATABASE,
-});
 
 // Define the database connection pool
 const db = mysql.createPool({
