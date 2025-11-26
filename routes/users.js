@@ -307,11 +307,11 @@ router.post(
           req.session.userId = username;
           req.session.firstName = user.firstName;
 
-          // decide where to go next
-          // const redirectUrl = req.session.returnTo || "/";
+        
           delete req.session.returnTo;
           //  return res.redirect("./login");
-          return res.redirect("./list");
+          return res.redirect("./");
+
         } else {
           // Failed login: bad password
           db.query(
