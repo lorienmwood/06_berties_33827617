@@ -10,7 +10,7 @@ const { check, validationResult } = require("express-validator");
 const redirectLogin = (req, res, next) => {
   if (!req.session.userId) {
     // res.redirect("../users/login"); // redirect to the login page
-    return res.redirect(req.baseUrl + "/users/login");
+    return res.redirect("./login");
   } else {
     next(); // move to the next middleware function
   }
@@ -310,9 +310,8 @@ router.post(
           // decide where to go next
           // const redirectUrl = req.session.returnTo || "/";
           delete req.session.returnTo;
-        //  return res.redirect("./login");
-         return res.redirect("./list");
-
+          //  return res.redirect("./login");
+          return res.redirect("./list");
         } else {
           // Failed login: bad password
           db.query(
