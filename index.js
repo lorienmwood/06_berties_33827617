@@ -7,6 +7,7 @@ var session = require("express-session");
 const expressSanitizer = require('express-sanitizer');
 require("dotenv").config();
 
+
 // Create the express application object
 const app = express();
 const port = 8000;
@@ -80,6 +81,14 @@ app.use("/users", usersRoutes);
 // Load the route handlers for /books
 const booksRoutes = require("./routes/books");
 app.use("/books", booksRoutes);
+
+// Load the route handlers for /weather
+const weatherRoutes = require("./routes/weather");
+app.use("/weather", weatherRoutes);
+
+// Load the route handlers for /api
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
