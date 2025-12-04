@@ -103,3 +103,23 @@ The password field is not sanitised because it is never displayed and is only ha
 #### Login form:
 - The username field is sanitised to prevent XSS attacks through malicious input.
 - The password field is not sanitised because it is never displayed and is only used for secure comparison with the hashed password. Sanitising it could change the input and break authentication.
+
+
+### Books API
+
+GET /api/books, returns a JSON list of all books in the database.
+
+##### Optional Query Parameters
+| Parameter               | Example                             | Description                                    |
+| ----------------------- | ----------------------------------- | ---------------------------------------------- |
+| `search`                | `/api/books?search=world`           | Filters books whose titles contain the keyword |
+| `minprice` / `maxprice` | `/api/books?minprice=5&maxprice=10` | Returns books within a price range             |
+| `sort`                  | `/api/books?sort=name`              | Sort results by `name` or `price`              |
+
+##### Example Requests
+/api/books
+/api/books?search=world
+/api/books?minprice=5&max_price=10
+/api/books?sort=name
+/api/books?sort=price
+
